@@ -17,7 +17,7 @@ class Album(models.Model):
     artist = models.CharField(max_length=50)
     image = models.ImageField(upload_to='tracks/albums')
     released_Time = models.DateField()
-    album = models.ManyToManyField(Genre, related_name='albums')
+    genre = models.ManyToManyField(Genre,)
     views = models.IntegerField(default=0)
     def __str__(self):
         return self.name

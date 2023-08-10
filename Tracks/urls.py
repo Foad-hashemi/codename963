@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import AlbumsList
+from .views import *
 
 app_name = 'Tracks'
 
 urlpatterns = [
-    path('albums', AlbumsList.as_view(), name='album')
+    path('albumlist', AlbumsList.as_view(), name='album_list'),
+    path('album', SingleAlbum.as_view(), name='album')
 ]

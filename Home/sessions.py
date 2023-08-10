@@ -19,12 +19,12 @@ class Recent:
     #         item['upk'] = self.unicque_id_generator(product.id, item['size'], item['color'])
     #         yield item
 
-    def unicque_id_generator(self, slug, artist):
-        result = f'{slug}-{artist}'
+    def unicque_id_generator(self, slug):
+        result = f'{slug}--'
         return result
 
-    def add(self, slug, artist):
-        unique_id = self.unicque_id_generator(slug=slug, artist=artist)
+    def add(self, slug):
+        unique_id = self.unicque_id_generator(slug=slug)
         if unique_id not in self.cart:
             self.cart[unique_id] = {'track_name': slug}
         self.save()
