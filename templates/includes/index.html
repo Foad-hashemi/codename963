@@ -1,0 +1,23 @@
+      <div class="contain">
+             <div class="container">
+              <div id="music-player" class="music-player">
+
+               <div class="cover">
+                <img alt="" style="height: 160px;width: 280px" src="{{play.image.url}}"/>
+               </div>
+               <div class="titre">
+                <h3>
+                 {{play.artist}}
+                </h3>
+                <h1>
+                 {{play.name}}
+                </h1>
+               </div>
+               <div class="lecteur">
+                <audio class="fc-media" style="width: 100%;">
+                 <source src="{% if play.file %}{{play.file.url}}{% endif %}" type="audio/mp3"/>
+                </audio>
+               </div>
+              </div>
+             </div>
+        </div>
