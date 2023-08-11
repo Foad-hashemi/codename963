@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-_&&+2g8nsp8&y+**u5#$h1g#a1u^9aw9v(pl5l5jbvk4rc0*vf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -67,12 +67,9 @@ WSGI_APPLICATION = 'codename93.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'codename963',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST':'127.0.0.1',
-        'PORT':'5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':  BASE_DIR / 'db.sqlite3',
+
 
     }
 }
@@ -112,6 +109,10 @@ STATIC_URL = 'assets/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets')
 ]
+
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

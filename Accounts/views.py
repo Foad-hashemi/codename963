@@ -4,7 +4,7 @@ from django.views.generic import View, FormView
 from django import forms
 
 from django.forms.utils import ValidationError
-from .forms import RegisterForm, LoginForm, AddressCreationForm
+from .forms import RegisterForm, LoginForm
 
 
 class Register(FormView):
@@ -31,16 +31,3 @@ class Login(FormView):
         return super().form_valid(form)
 
 
-class AddAddress(View):
-    def post(self, request):
-        form = AddressCreationForm(request.POST)
-        if form.is_valid():
-            commit = form.save(commit=False)
-            commit.user = request.user
-            commit.save()
-            return redirect('Order:cart')
-        return render(request, 'Accounts/checkout.html', {'form':form})
-
-    def get(self, request):
-        form = AddressCreationForm()
-        return render(request, 'Accounts/checkout.html', {'form':form})
